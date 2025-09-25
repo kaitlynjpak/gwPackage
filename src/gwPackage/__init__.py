@@ -1,4 +1,5 @@
-__all__=["hello"]
+__all__ = ["hello"]
+
 
 def hello():
     return "gwPackage is alive!"
