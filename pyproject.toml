@@ -1,29 +1,33 @@
 [build-system]
-requires = ["hatchling>=1.25"]
-build-backend = "hatchling.build"
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
 
 [project]
-name = "gwpackage"
+name = "gw-assoc"
 version = "0.0.1"
-description = "GW volume localization + transient association utilities"
+description = "GW–EM association utilities (spatial/temporal overlaps, odds, plots)"
 readme = "README.md"
 requires-python = ">=3.9"
-license = {text = "CMU"}
-authors = [{name = "Kaitlyn Pak", email = "kpak2@andrew.cmu.edu"}]
-keywords = []
-dependencies = []
+dependencies = [
+  "numpy",
+  "astropy",
+  "healpy",
+  "matplotlib",
+  "ligo.skymap",
+]
 
-[project.urls]
-Homepage = "https://github.com/kaitlynjpak/gwPackage"
-Issues = "https://github.com/kaitlynjpak/gwPackage/issues"
+[tool.setuptools]
+# Tell setuptools that our packages live inside src/gwPackage/
+package-dir = {"" = "src/gwPackage"}
 
-[tool.ruff]
-line-length = 100
-target-version = "py311"
+[tool.setuptools.packages.find]
+# Search only under src/gwPackage
+where = ["src/gwPackage"]
+# Include the gw_assoc package and all its subpackages
+include = ["gw_assoc*"]
+# Do NOT package examples or tests
+exclude = ["examples*", "tests*"]
 
-[tool.black]
-line-length = 100
-target-version = ["py311"]
-
-[tool.hatch.build.targets.wheel]
-packages = ["src/gwPackage"]
+[project.scripts]
+# (optional) CLI stub; you can fill gw_assoc/cli.py later
+gw-assoc = "gw_assoc.cli:main"

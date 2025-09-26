@@ -5,8 +5,8 @@
   "editor.formatOnSave": true,
   "python.formatting.provider": "black",
   "editor.codeActionsOnSave": {
-    "source.fixAll": true,
-    "source.organizeImports": true
+    "source.fixAll": "explicit",
+    "source.organizeImports": "explicit"
   },
   "ruff.enable": true,
   "ruff.lint.enable": true
