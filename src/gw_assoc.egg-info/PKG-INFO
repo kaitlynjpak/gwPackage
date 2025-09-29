@@ -1,14 +1,18 @@
 Metadata-Version: 2.4
 Name: gw-assoc
-Version: 0.0.1
-Summary: GW–EM association utilities (spatial/temporal overlaps, odds, plots)
+Version: 0.1.0
+Summary: Tools to evaluate gravitational-wave and electromagnetic transient associations
+Author-email: Kaitlyn Pak <kaitlynjpak@gmail.com>
+License: MIT
 Requires-Python: >=3.9
 Description-Content-Type: text/markdown
 Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: matplotlib
 Requires-Dist: astropy
 Requires-Dist: healpy
-Requires-Dist: matplotlib
 Requires-Dist: ligo.skymap
+Requires-Dist: scikit-learn
 
 Utilities to ingest GW volume localizations and evaluate association with arbitrary transients.
 ```bash

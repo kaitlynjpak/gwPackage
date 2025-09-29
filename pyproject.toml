@@ -1,33 +1,30 @@
-[build-system]
-requires = ["setuptools>=68", "wheel"]
-build-backend = "setuptools.build_meta"
-
 [project]
 name = "gw-assoc"
-version = "0.0.1"
-description = "GW–EM association utilities (spatial/temporal overlaps, odds, plots)"
+version = "0.1.0"
+description = "Tools to evaluate gravitational-wave and electromagnetic transient associations"
+authors = [
+  { name = "Kaitlyn Pak", email = "kaitlynjpak@gmail.com" }
+]
 readme = "README.md"
+license = { text = "MIT" }
 requires-python = ">=3.9"
+
 dependencies = [
   "numpy",
+  "scipy",
+  "matplotlib",
   "astropy",
   "healpy",
-  "matplotlib",
   "ligo.skymap",
+  "scikit-learn",
 ]
 
-[tool.setuptools]
-# Tell setuptools that our packages live inside src/gwPackage/
-package-dir = {"" = "src/gwPackage"}
+[project.scripts]
+gw-assoc = "gw_assoc.cli:main"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages.find]
-# Search only under src/gwPackage
-where = ["src/gwPackage"]
-# Include the gw_assoc package and all its subpackages
-include = ["gw_assoc*"]
-# Do NOT package examples or tests
-exclude = ["examples*", "tests*"]
-
-[project.scripts]
-# (optional) CLI stub; you can fill gw_assoc/cli.py later
-gw-assoc = "gw_assoc.cli:main"
+where = ["src"]
