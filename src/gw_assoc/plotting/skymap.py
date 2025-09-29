@@ -2,13 +2,14 @@ import matplotlib.pyplot as plt
 
 def plot_skymap(gw_data, transient, out_file="skymap.png"):
     """
-    Minimal stub for skymap plotting.
-    Just makes a blank plot with the transient marked.
+    Minimal placeholder: blank plot with transient marker.
     """
     fig, ax = plt.subplots()
     ax.set_title("Skymap (stub)")
-    if transient.ra is not None and transient.dec is not None:
-        ax.plot(transient.ra, transient.dec, "ro", label="Transient")
+    if getattr(transient, "ra", None) is not None and getattr(transient, "dec", None) is not None:
+        ax.plot(transient.ra, transient.dec, "o", label="Transient")
+        ax.set_xlabel("RA [deg]")
+        ax.set_ylabel("Dec [deg]")
         ax.legend()
-    plt.savefig(out_file)
+    fig.savefig(out_file, bbox_inches="tight")
     plt.close(fig)

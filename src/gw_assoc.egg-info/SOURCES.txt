@@ -1,5 +1,9 @@
 README.md
 pyproject.toml
+src/gwPackage/gw_assoc/cli.py
+src/gwPackage/gw_assoc/analysis/odds.py
+src/gwPackage/gw_assoc/io/skymap.py
+src/gwPackage/gw_assoc/io/transient.py
 src/gw_assoc/__init__.py
 src/gw_assoc/association.py
 src/gw_assoc/cli.py
